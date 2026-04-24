@@ -141,7 +141,7 @@ const statObserver = new IntersectionObserver((entries) => {
     const el = entry.target;
     const raw = el.textContent.trim();
     const match = raw.match(/^([\d.]+)(.*)/);
-    if (!match) return;
+    if (!match) { statObserver.unobserve(el); return; }
     const target = parseFloat(match[1]);
     const suffix = match[2];
     const isFloat = match[1].includes('.');
@@ -158,6 +158,28 @@ const statObserver = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.5 });
 statNums.forEach(s => statObserver.observe(s));
+
+// ── GitHub stars (live) ──────────────────────────────────
+fetch('https://api.github.com/repos/captainpanez/Matrix-Site-Claude')
+  .then(r => r.json())
+  .then(({ stargazers_count: n = 0 }) => {
+    document.getElementById('stat-stars').textContent =
+      n >= 1000 ? (n / 1000).toFixed(1) + 'K' : String(n);
+  })
+  .catch(() => { document.getElementById('stat-stars').textContent = '★'; });
+
+// ── Live bot uptime ───────────────────────────────────────
+// Update BOT_START to match the actual date the bot went live
+const BOT_START = new Date('2024-01-01T00:00:00Z');
+const uptimeEl = document.getElementById('stat-uptime');
+function refreshUptime() {
+  const ms = Date.now() - BOT_START.getTime();
+  const d = Math.floor(ms / 86400000);
+  const h = Math.floor((ms % 86400000) / 3600000);
+  uptimeEl.textContent = `${d}d ${h}h`;
+}
+refreshUptime();
+setInterval(refreshUptime, 60000);
 
 // ── Feature card scroll reveal ───────────────────────────
 const cards = document.querySelectorAll('.feature-card');

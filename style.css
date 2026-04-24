@@ -209,7 +209,7 @@ body {
   animation: fadeUp 0.5s ease 0.2s both;
 }
 .hero-actions { display: flex; gap: 10px; flex-wrap: wrap; animation: fadeUp 0.5s ease 0.3s both; }
-.hero-stats { display: flex; align-items: center; gap: 28px; margin-top: 48px; animation: fadeUp 0.5s ease 0.4s both; }
+.hero-stats { display: flex; align-items: center; gap: 28px; margin-top: 48px; animation: fadeUp 0.5s ease 0.4s both; flex-wrap: wrap; }
 .stat-divider { width: 1px; height: 28px; background: var(--border-2); }
 .stat-num { display: block; font-family: var(--mono); font-size: 1.3rem; color: var(--white); letter-spacing: -0.02em; }
 .stat-label { font-size: 0.75rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; font-family: var(--mono); }
