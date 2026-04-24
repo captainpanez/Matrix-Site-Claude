@@ -12,6 +12,7 @@
 </head>
 <body>
 
+  <div class="progress-bar" id="progress-bar"></div>
   <div class="scanlines" aria-hidden="true"></div>
 
   <nav class="nav" id="nav">
@@ -29,15 +30,17 @@
       </a>
       <div class="nav-links">
         <a href="#features">Features</a>
+        <a href="#commands">Commands</a>
         <a href="#about">About</a>
         <a href="#" class="nav-cta">Invite Bot</a>
       </div>
-      <button class="nav-burger" id="burger" aria-label="Menu">
+      <button class="nav-burger" id="burger" aria-label="Menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
     </div>
     <div class="nav-mobile" id="nav-mobile">
       <a href="#features">Features</a>
+      <a href="#commands">Commands</a>
       <a href="#about">About</a>
       <a href="#">Invite Bot</a>
       <a href="#">Support Server</a>
@@ -93,13 +96,13 @@
         </div>
         <div class="terminal-body">
           <div class="t-line"><span class="t-prompt">$</span><span class="t-cmd"> /ban @spammer reason: spam</span></div>
-          <div class="t-line t-out"><span class="t-green">✓</span> User banned → <span class="t-white">#mod-logs</span></div>
+          <div class="t-line t-out"><span class="t-green">✓ </span>User banned → <span class="t-white">#mod-logs</span></div>
           <div class="t-spacer"></div>
           <div class="t-line"><span class="t-prompt">$</span><span class="t-cmd"> /ai moderate enable</span></div>
-          <div class="t-line t-out"><span class="t-green">✓</span> AI moderation <span class="t-white">active</span></div>
+          <div class="t-line t-out"><span class="t-green">✓ </span>AI moderation <span class="t-white">active</span></div>
           <div class="t-spacer"></div>
           <div class="t-line"><span class="t-prompt">$</span><span class="t-cmd"> /log channel #server-logs</span></div>
-          <div class="t-line t-out"><span class="t-green">✓</span> Logging <span class="t-white">all events</span></div>
+          <div class="t-line t-out"><span class="t-green">✓ </span>Logging <span class="t-white">all events</span></div>
           <div class="t-spacer"></div>
           <div class="t-line"><span class="t-prompt">$</span><span class="t-cursor">█</span></div>
         </div>
@@ -155,6 +158,80 @@
     </div>
   </section>
 
+  <section class="commands" id="commands">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">// command reference</span>
+        <h2>100+ commands.<br/><span class="accent-text">Every category.</span></h2>
+        <p>Slash commands for every use case — fast, reliable, and always improving.</p>
+      </div>
+      <div class="cmd-grid">
+        <div class="cmd-category">
+          <div class="cmd-cat-header">
+            <div class="cmd-cat-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+            </div>
+            <span>Moderation</span>
+            <span class="cmd-count">24 cmds</span>
+          </div>
+          <div class="cmd-list">
+            <div class="cmd-item"><code>/ban</code><span>Ban with reason &amp; duration</span></div>
+            <div class="cmd-item"><code>/kick</code><span>Kick a member immediately</span></div>
+            <div class="cmd-item"><code>/mute</code><span>Timeout for set duration</span></div>
+            <div class="cmd-item"><code>/warn</code><span>Issue a tracked warning</span></div>
+            <div class="cmd-item"><code>/purge</code><span>Bulk delete messages</span></div>
+          </div>
+        </div>
+        <div class="cmd-category">
+          <div class="cmd-cat-header">
+            <div class="cmd-cat-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8l-6-6z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><polyline points="14 2 14 8 20 8" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+            </div>
+            <span>Logging</span>
+            <span class="cmd-count">18 cmds</span>
+          </div>
+          <div class="cmd-list">
+            <div class="cmd-item"><code>/log channel</code><span>Set log destination</span></div>
+            <div class="cmd-item"><code>/log events</code><span>Configure event types</span></div>
+            <div class="cmd-item"><code>/log ignore</code><span>Exclude channels or roles</span></div>
+            <div class="cmd-item"><code>/log export</code><span>Export log archive to file</span></div>
+          </div>
+        </div>
+        <div class="cmd-category">
+          <div class="cmd-cat-header">
+            <div class="cmd-cat-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z" stroke="currentColor" stroke-width="2"/></svg>
+            </div>
+            <span>AI</span>
+            <span class="cmd-count">12 cmds</span>
+          </div>
+          <div class="cmd-list">
+            <div class="cmd-item"><code>/ai moderate</code><span>Enable AI auto-moderation</span></div>
+            <div class="cmd-item"><code>/ai summarize</code><span>Summarize recent messages</span></div>
+            <div class="cmd-item"><code>/ai respond</code><span>Configure AI auto-reply</span></div>
+            <div class="cmd-item"><code>/ai detect</code><span>Toxicity detection rules</span></div>
+          </div>
+        </div>
+        <div class="cmd-category">
+          <div class="cmd-cat-header">
+            <div class="cmd-cat-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <span>Utility</span>
+            <span class="cmd-count">46 cmds</span>
+          </div>
+          <div class="cmd-list">
+            <div class="cmd-item"><code>/role button</code><span>Button-based role assign</span></div>
+            <div class="cmd-item"><code>/role reaction</code><span>Reaction role setup</span></div>
+            <div class="cmd-item"><code>/automod</code><span>Configure auto-mod rules</span></div>
+            <div class="cmd-item"><code>/stats server</code><span>Real-time server analytics</span></div>
+            <div class="cmd-item"><code>/trigger</code><span>Create custom triggers</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="about" id="about">
     <div class="container">
       <div class="about-inner">
@@ -178,6 +255,51 @@
           <div class="about-card-row"><div class="check-icon">04</div><span>Dedicated support server and documentation</span></div>
           <div class="about-card-row"><div class="check-icon">05</div><span>Privacy-first — no unnecessary data stored</span></div>
           <a href="#" class="btn btn-primary" style="margin-top: 1.5rem; width: 100%; justify-content: center;">Deploy Matrix Now</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="testimonials" id="testimonials">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">// community feedback</span>
+        <h2>Trusted by admins.<br/><span class="accent-text">Loved by communities.</span></h2>
+        <p>Thousands of servers rely on Matrix every day.</p>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <div class="t-stars">★★★★★</div>
+          <p class="t-quote">"Running a 50K member gaming server, Matrix handles everything from raid protection to role rewards without any config headaches."</p>
+          <div class="t-author">
+            <div class="t-avatar">AK</div>
+            <div>
+              <div class="t-name">Alex K.</div>
+              <div class="t-role">Gaming Server Admin · 50K members</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="t-stars">★★★★★</div>
+          <p class="t-quote">"Replaced three different bots with Matrix. The logging alone is worth it — every voice move, every edit, all routed perfectly."</p>
+          <div class="t-author">
+            <div class="t-avatar">SM</div>
+            <div>
+              <div class="t-name">Sarah M.</div>
+              <div class="t-role">Community Manager · 28K members</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="t-stars">★★★★★</div>
+          <p class="t-quote">"The AI moderation caught things our manual team missed. It's like having a 24/7 moderator that never burns out."</p>
+          <div class="t-author">
+            <div class="t-avatar">DR</div>
+            <div>
+              <div class="t-name">Dom R.</div>
+              <div class="t-role">Server Owner · 12K members</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -241,7 +363,7 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <span>© 2025 Matrix. All rights reserved.</span>
+        <span>© 2026 Matrix. All rights reserved.</span>
         <span>Not affiliated with Discord Inc.</span>
       </div>
     </div>
