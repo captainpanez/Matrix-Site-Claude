@@ -159,14 +159,26 @@ const statObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0.5 });
 statNums.forEach(s => statObserver.observe(s));
 
-// ── GitHub stars (live) ──────────────────────────────────
-fetch('https://api.github.com/repos/captainpanez/Matrix-Site-Claude')
+// ── Live bot stats via /api/stats (top.gg proxy) ─────────
+function fmt(n) {
+  if (n >= 1000000) return (n / 1000000).toFixed(1) + 'M+';
+  if (n >= 1000)    return (n / 1000).toFixed(1) + 'K+';
+  return String(n);
+}
+
+fetch('/api/stats')
   .then(r => r.json())
-  .then(({ stargazers_count: n = 0 }) => {
-    document.getElementById('stat-stars').textContent =
-      n >= 1000 ? (n / 1000).toFixed(1) + 'K' : String(n);
+  .then(data => {
+    if (data.servers  != null) document.getElementById('stat-servers').textContent  = fmt(data.servers);
+    if (data.members  != null) document.getElementById('stat-members').textContent  = fmt(data.members);
+    if (data.commands != null) document.getElementById('stat-commands').textContent = fmt(data.commands);
   })
-  .catch(() => { document.getElementById('stat-stars').textContent = '★'; });
+  .catch(() => {
+    // Fallback to last-known values if API is unreachable
+    document.getElementById('stat-servers').textContent  = '12K+';
+    document.getElementById('stat-members').textContent  = '2M+';
+    document.getElementById('stat-commands').textContent = '5M+';
+  });
 
 // ── Live bot uptime ───────────────────────────────────────
 // Update BOT_START to match the actual date the bot went live
